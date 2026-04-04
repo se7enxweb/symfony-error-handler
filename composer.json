@@ -1,10 +1,13 @@
 {
-    "name": "symfony/error-handler",
+    "name": "se7enxweb/symfony-error-handler",
     "type": "library",
     "description": "Provides tools to manage errors and ease debugging PHP code",
     "keywords": [],
     "homepage": "https://symfony.com",
     "license": "MIT",
+    "replace": {
+        "symfony/error-handler": "self.version"
+    },
     "authors": [
         {
             "name": "Fabien Potencier",
