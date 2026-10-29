@@ -191,6 +191,9 @@ class ErrorHandler
             $this->setDefaultLogger($bootstrappingLogger);
         }
         $traceReflector = new \ReflectionProperty(\Exception::class, 'trace');
+        if (\PHP_VERSION_ID < 80100) {
+            $traceReflector->setAccessible(true);
+        }
         $this->configureException = \Closure::bind(static function ($e, $trace, $file = null, $line = null) use ($traceReflector) {
             $traceReflector->setValue($e, $trace);
             $e->file = $file ?? $e->file;
